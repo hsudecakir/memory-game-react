@@ -1,4 +1,4 @@
-export default function Header({ newGame, isHamburgerMenuOpen, setIsHamburgerMenuOpen, stopTimer }){
+export default function Header({ newGame, isHamburgerMenuOpen, setIsHamburgerMenuOpen }){
 
   function handleClick(){
     setIsHamburgerMenuOpen(true);

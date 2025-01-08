@@ -17,7 +17,6 @@ function App() {
 
   const startTimer = () => {
     if (intervalId) return;
-    console.log("Timer started");
     const id = setInterval(() => {
       setTimer((prevTimer) => prevTimer + 1);
     }, 1000);
@@ -26,7 +25,6 @@ function App() {
 
   const stopTimer = () => {
     if (intervalId) {
-      console.log("Timer stopped");
       clearInterval(intervalId);
       setIntervalId(null);
     }
@@ -83,7 +81,6 @@ function App() {
   }, []);
 
   function newGame(prop){
-    stopTimer();
     if(prop === 'resume'){
       setIsHamburgerMenuOpen(false);
       return;
@@ -101,7 +98,7 @@ function App() {
 
   return (
     <div className='container'>
-      <Header newGame={newGame} isHamburgerMenuOpen={isHamburgerMenuOpen} setIsHamburgerMenuOpen={setIsHamburgerMenuOpen}stopTimer={stopTimer} />
+      <Header newGame={newGame} isHamburgerMenuOpen={isHamburgerMenuOpen} setIsHamburgerMenuOpen={setIsHamburgerMenuOpen} />
       <Boxes score={score} setScore={setScore} moves={moves} setMoves={setMoves} shuffledArray={shuffledArray} matchedBoxes={matchedBoxes} setMatchedBoxes={setMatchedBoxes} />
       <Footer moves={moves} timer={timer} setTimer={setTimer} formatTime={formatTime} />
       {isModalOpen ? <Modal timer={timer} moves={moves} newGame={newGame} /> : ''}
